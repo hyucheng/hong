@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import index from '@/components/index'
+import Layout from '@/page/index/'
+import index from '@/views/system/index'
 const _import = require('./_import');
 
 const view = {
@@ -11,19 +11,26 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
+    // {
+    //   path: '/',
+    //   name: '主页',
+    //   component: index
+    // },
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/test',
-      name: 'index',
-      component: index
+      component: Layout,
+      children:[
+        {
+          path: '/',
+          name: '首页',
+          component: _import('system/index','views')
+        }
+      ]
     },
     {
       path: '/system',
-      // component: view,
+      component: Layout,
       children:[
         {
           path: '/index',

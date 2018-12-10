@@ -19,3 +19,13 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+1.安装NPM
+
+2.项目启动
+  npm run edv
+
+3.
+
+4.项目说明
+  为广大web开发者提供丰富的前后端学习资源

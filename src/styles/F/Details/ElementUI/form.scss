@@ -1,0 +1,55 @@
+.el-form{
+  $this-line: $el-height;
+  $this-spac: $el-spac * 2;
+  $this-error-size: $el-error;
+  
+  padding-top: $el-spac;
+  &-item{
+    margin-bottom: $this-spac;
+    &__{
+      &label{
+        padding-right: .5em; line-height: $this-line; vertical-align: top; color: #666;
+        @include after('：');
+      }
+      &content{
+        line-height: $this-line;
+        > {
+          @include el-prefix(form){
+            padding-top: 0;
+          }
+        }
+      }
+      &error{
+        margin-top: -1px; padding-top: 0; font-size: $this-error-size; line-height: $this-spac;
+      }
+    }
+    &.is-required{
+      @include el-prefix(form-item){
+        &__{
+          &label{
+            @include before(null){
+              font-size: $el-title; vertical-align: top; color: #ED0D01;
+            }
+          }
+        }
+      }
+    }
+    &.is-success{
+      @each $value in input, textarea {
+        @include el-prefix($value){
+          &__inner{
+            &, &:focus{
+              border-color: $el-border;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--inline{
+    @include el-prefix(form-item){
+      margin-right: $el-spac * 2;
+    }
+  }
+}

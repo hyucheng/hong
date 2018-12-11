@@ -1,0 +1,61 @@
+@include app-prefix(tools){
+  $this-bgcolor: #fff;
+  $item-height: $root-icon;
+  $second-height: $app-nav-line;
+
+  &-panel{
+    height: $app-tools-height; position: relative; z-index: 99; background-color: $this-bgcolor;
+  }
+  @include v-middle;
+  right: ofrem(30); font-size: $el-size; line-height: $item-height;
+  ul{
+    $second-ptop: calc-auto($app-tools-height $item-height * -1 ofrem(3) * 2, 2);
+
+    @include root-transition;
+    width: 100%; position: absolute; top: 100%; left: 0; border-top: $second-ptop solid rgba($this-bgcolor, 0); border-radius: ofrem(3); display: none;
+    @include after(){
+      position: absolute; top: 0; right: 0; bottom: 0; left: 0; border-radius:inherit; box-shadow: 0 0 ofrem(8) rgba($root-color, .3); z-index: -1; background-color: $this-bgcolor;
+    }
+  }
+  a{
+    display: block;
+  }
+  > li{
+    margin-left: ofrem(40); position: relative; display: inline-block;
+    &:hover{
+      > ul{
+        display: block;
+      }
+      > span{
+        @include after(null){
+          transform: rotate(90deg);
+        }
+      }
+    }
+    > span{
+      $this-spac: ofrem(4);
+      $this-plr: ofrem(5);
+      padding-right: calc-auto($this-spac $this-plr, 2, 1);
+      
+      @include after(){
+        @include el-ratio(0);
+        @include v-middle(m);
+        @include root-transition;
+        right: $this-spac; border: solid transparent; border-width: ofrem(4) $this-plr 0; border-top-color: #B0B3B5;
+      }
+    }
+    li{
+      @include root-transition;
+      padding-left: ofrem(30); line-height:$second-height; background-color: rgba($root-hover-color, .05);
+      &:hover{
+        color: $root-hover-color;
+      }
+    }
+  }
+  [class^='icon-']{
+    display: block; cursor: pointer;
+    @include before(null){
+      margin-right: ofrem(6); background: 50% no-repeat;
+    }
+  }
+}

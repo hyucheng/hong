@@ -1,0 +1,23 @@
+@include app-prefix(charts) {
+  &-tools {
+    padding-right: $app-spac * 2;
+    @include el-prefix(select){
+      margin-right: $app-spac; vertical-align: middle;
+      @include el-prefix(input){
+        &__inner{
+          width: 130px; display: block;
+        }
+      }
+    }
+    @include el-prefix(button){
+      @extend %BUTTON-SEARCH;
+      &.sl{
+        border-color: currentColor; z-index: 2; cursor: default; color: $root-hover-color; background-color: #fff;
+      }
+    }
+  }
+  &-chart {
+    margin-top: ofrem(20);
+    height: ofrem(360);
+  }
+}

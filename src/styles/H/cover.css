@@ -1,0 +1,256 @@
+
+/*---------------------------------------样式重写与新增--------------------------------------------*/
+
+/*业务接入页面*/
+.h-businessAccess .el-card__body{padding:0;}
+
+.h-businessAdd .el-autocomplete{width:100%;}
+
+/*登录页面*/
+.h-userLoginStyle .el-input__inner{
+  border :none;
+  border-bottom: solid 1px #e2e2e2;
+  padding-left:35px;
+  color:#409eff;
+}
+
+/*查看/新增-活动、生活、基础活动、基础生活*/
+.tipsTop { display: inline-block; width: 3px; vertical-align: middle; height: 30px; background: #409EFF }
+.tipsBotoom { display: inline-block; height: 30px; line-height: 30px; vertical-align: middle; font-size: 20px; }
+.tipsBotoomId{display:inline-block;height:30px;line-height:30px;vertical-align:middle;color: #bdbdbd;}
+
+/*首页样式*/
+.h-welIndex .selectStyle .el-input__inner{height:2rem}
+.h-welIndex .el-card__body{padding:0;}
+.h-welIndex .el-card__header{line-height:2.2rem;}
+.h-welIndex .dialogTips .el-dialog__body{padding:0 1rem 1rem 1rem;}
+.h-welIndex .tipsTitle{font-weight: bold;margin-top:10px;font-size: 1rem}
+.h-welIndex .tipsContent{margin-top: 10px;padding-left:1rem;font-size:0.625rem;}
+
+/*树控件*/
+.el-tree-node__label{padding-left:5px;}
+/*分页样式*/
+.el-pagination-table{ border: none !important; margin-top: 10px !important; background: #ffffff !important; }
+/*日期框样式*/
+.el-date-editor.el-range-editor.el-input__inner{line-height:0 !important;}
+/*文本框样式*/
+.el-input__inner{  line-height:1.875rem;  }
+/*文本框图标*/
+.el-input__icon{line-height:20px !important;}
+/*日期控件样式重写*/
+.el-range-input{line-height: 20px !important;}
+.el-range-separator{line-height: 20px !important;}
+
+.clearfix:before, .clearfix:after { display: table; content: ""; }
+.clearfix:after { clear: both }
+
+/*添加生活图片*/
+.h-licenseLifeAdd .el-upload-dragger{ width:120px; height:120px;}
+.h-licenseLifeAdd .el-upload-dragger .el-icon-upload{margin:50% 0 0;}
+.h-licenseLifeAdd .imgPreview { top: 0; left: 0; position: absolute; width: 120px; height: 120px; }
+/*查看生活图片*/
+.h-licenseLifeView .el-upload-dragger{ width:120px; height:120px;}
+.h-licenseLifeView .el-upload-dragger .el-icon-upload{margin:50% 0 0;}
+.h-licenseLifeView .imgPreview { top: 0; left: 0; position: absolute; width: 120px; height: 120px; }
+/*添加基础生活图片*/
+.h-baseCityLifeAdd .el-upload-dragger{ width:120px; height:120px;}
+.h-baseCityLifeAdd .el-upload-dragger .el-icon-upload{margin:50% 0 0;}
+.h-baseCityLifeAdd .imgPreview { top: 0; left: 0; position: absolute; width: 120px; height: 120px; }
+/*查看基础生活图片*/
+.h-baseCityLifeView .el-upload-dragger{ width:120px; height:120px;}
+.h-baseCityLifeView .el-upload-dragger .el-icon-upload{margin:50% 0 0;}
+.h-baseCityLifeView .imgPreview { top: 0; left: 0; position: absolute; width: 120px; height: 120px; }
+/*添加证照类型*/
+.h-licenseTypeAdd .imgPreview{top:0;left:0;position:absolute;width:50px;height:50px;}
+.h-licenseTypeAdd .upload-demo .el-upload-dragger{ width:50px; height:50px;border-radius: 50%;background: #eeeeee;}
+.h-licenseTypeAdd .upload-demo .popImgStyle{margin-left:5px;margin-bottom:5px;vertical-align:middle;width: 20px;height: 20px;}
+.h-licenseTypeAdd .imgPreviewBack{top:0;left:0;position:absolute;width:150px;height:50px;}
+.h-licenseTypeAdd .upload-demo-back .el-upload-dragger{ width:150px; height:50px;background: #eeeeee;}
+.h-licenseTypeAdd .upload-demo-back  .popImgStyle{margin-left:5px;margin-bottom:5px;vertical-align:middle;width: 20px;height: 20px;}
+.h-licenseTypeAdd .el-card__body{padding-bottom:0;}
+.h-licenseTypeAdd .card-for-img .el-card__body{height:165px;padding-bottom:0;}
+.h-licenseTypeAdd .card-for-img{margin-top: 10px;}
+.h-licenseTypeAdd .el-radio + .el-radio{margin-left:0;}
+
+.h-licenseTypeAdd .imgPreviewShortProve{top:0;left:0;position:absolute;width:50px;height:50px;}
+.h-licenseTypeAdd .uploadDemoShortProve .el-upload-dragger{ width:50px; height:50px;background: #eeeeee;border-radius: 50%;}
+
+/*新增证明独有*/
+.h-licenseTypeAdd .imgPreviewShort{top:0;left:0;position:absolute;width:71px;height:52px;}
+.h-licenseTypeAdd .uploadDemoShort .el-upload-dragger{ width:71px; height:52px;background: #eeeeee;}
+
+.h-licenseTypeUpdate .imgPreviewShortProve{top:0;left:0;position:absolute;width:50px;height:50px;}
+.h-licenseTypeUpdate .uploadDemoShortProve .el-upload-dragger{ width:50px; height:50px;background: #eeeeee;border-radius: 50%;}
+
+/*证明独有*/
+.h-licenseTypeUpdate .imgPreviewShort{top:0;left:0;position:absolute;width:71px;height:52px;}
+.h-licenseTypeUpdate .uploadDemoShort .el-upload-dragger{ width:71px; height:52px;background: #eeeeee;}
+
+/*查看证照类型*/
+.h-licenseTypeUpdate .imgPreview{top:0;left:0;position:absolute;width:50px;height:50px;}
+.h-licenseTypeUpdate .upload-demo .el-upload-dragger{ width:50px; height:50px;border-radius: 50%;background: #eeeeee;}
+.h-licenseTypeUpdate .upload-demo .popImgStyle{margin-left:5px;margin-bottom:5px;vertical-align:middle;width: 20px;height: 20px;}
+.h-licenseTypeUpdate .imgPreviewBack{top:0;left:0;position:absolute;width:150px;height:50px;}
+.h-licenseTypeUpdate .upload-demo-back .el-upload-dragger{ width:150px; height:50px;background: #eeeeee;}
+.h-licenseTypeUpdate .upload-demo-back  .popImgStyle{margin-left:5px;margin-bottom:5px;vertical-align:middle;width: 20px;height: 20px;}
+.h-licenseTypeUpdate .el-card__body{padding-bottom:0;}
+.h-licenseTypeUpdate .card-for-img .el-card__body{height:150px;padding-bottom:0;}
+.h-licenseTypeUpdate .card-for-img{margin-top: 10px;}
+.h-licenseTypeUpdate .el-radio + .el-radio{margin-left:0;}
+
+
+
+/*首页样式*/
+.uRadioWel{margin-left:30px;}
+.uRadioWel .el-radio__input{display:none;}
+.uRadioWel .el-radio{border:solid #e2e2e2;border-width: 0 1px 0 1px;margin-left: -1px !important;}
+/*.uRadioWel .el-radio:last-child{border:none;}*/
+.uRadioWel .el-radio__label{background:#fff;height:2.4rem;line-height:2.4rem ;display: inline-block;}
+.uRadioWel .el-radio.is-checked .el-radio__label{background:#409EFF;color:#fff;}
+.uRadioWel .el-radio .el-radio__label:hover{background:#409EFF;color:#fff;}
+
+.uRadioWel.appStyle .el-radio__label{height: 1.875rem;line-height: 1.875rem !important;vertical-align: middle;}
+.uRadioWel.appStyle .el-radio{border:solid 1px #e2e2e2;margin-left: -1px;box-sizing: border-box;}
+
+/*证照类型管理*/
+.h-licenseManage .el-card__body{padding:0;}
+.h-licenseManage .issStatus{display:inline-block;text-align:center;border-radius:10px;color:#ffbf24;}
+
+/*证照类型清单*/
+.h-licenseLicenseList .app-main-left{width:100%}
+
+/*业务清单页面*/
+.h-businessArea .el-input__inner{  height: 40px; line-height: 40px;border: solid #dcdfe6;border-width: 1px 0 1px 0;}
+.h-businessList .u-radio-btns{padding:0;padding-left:4rem;line-height: 40px;height: 40px;}
+.h-businessList .u-radio-btns::before{font-size: 14px;line-height: 40px;width:5rem;}
+.h-businessList .u-radio-btns .el-radio__label{padding:0;padding-left:2rem;font-size: 14px;line-height: 40px;height:40px;}
+
+/*问题分类编辑页面*/
+.h-FaqDialog .el-dialog__body{
+  max-height: calc(70vh - 68px);
+  overflow: visible;
+}
+/*菜单二级箭头*/
+.el-submenu__icon-arrow.el-icon-arrow-down{margin-top:1px;}
+/*高度*/
+.h-h40{height:40px;}
+.h-lh40{line-height:40px;}
+
+/*边框*/
+.h-borGray{border: solid 1px #dcdfe6;}
+.h-bor-n{border:none;}
+
+/*文本居中*/
+.h-tc{ text-align: center; }
+.h-tl{ text-align: left; }
+.h-tr{ text-align: right; }
+
+/*字体*/
+.h-fs12{ font-size: 12px; }
+.h-fs14{ font-size: 14px; }
+.h-fs16{ font-size: 16px; }
+.h-fs18{ font-size: 18px; }
+.h-fs20{ font-size: 20px; }
+.h-fs30{ font-size: 30px; }
+
+/*字体加粗*/
+.h-fw{ font-weight: bold;}
+
+/*字体颜色*/
+/*.h-gray{ color: #dbdbdb !important; }*/
+.h-green{ color: #67c23a; }
+.h-bgGreen{ background: #67c23a; }
+.h-blue{ color:#13A1FF; }
+.h-bgBlue{ background:#409EFF; }
+.h-blue1:hover{ color: #13A1FF !important; }
+.h-yellow:hover{ color: #f3ff20 !important; }
+.h-orange{ color:#E6A23C; }
+.h-bgOrange{ background:#E6A23C; }
+.h-bgOrange1{ background:#E6A23C; }
+.h-bgOrange:hover{ color: #000000 !important; }
+
+.h-white{color: #ffffff;}
+.h-bgGray{background: #f2f2f2;}
+.h-bgGray1{background:hsla(0,0%,100%, .3);}
+.h-bgGray1:hover{background:hsla(0,0%,100%, 0.4);}
+.h-bgRed{ background: #ff2712 !important; }
+.h-gray{ color:#999999; }
+.h-red{ color: #ff2712; }
+
+/*margin 间距*/
+.h-mt3{ margin-top:3px;}
+.h-mt5{ margin-top:5px;}
+.h-mt10{ margin-top:10px;}
+.h-mt15{ margin-top:15px;}
+.h-mt20{ margin-top:20px;}
+.h-mt25{ margin-top:25px;}
+.h-mt30{ margin-top:30px;}
+
+.h-ml10{ margin-left:10px;}
+.h-ml15{ margin-left:15px;}
+.h-ml20{ margin-left:20px;}
+.h-ml25{ margin-left:25px;}
+.h-ml30{ margin-left:30px;}
+
+.h-mr10{ margin-right:10px;}
+.h-mr15{ margin-right:15px;}
+.h-mr20{ margin-right:20px;}
+.h-mr25{ margin-right:25px;}
+.h-mr30{ margin-right:30px;}
+
+.h-mb0{ margin-bottom:0 !important;}
+.h-mb10{ margin-bottom:10px;}
+.h-mb15{ margin-bottom:15px;}
+.h-mb20{ margin-bottom:20px;}
+.h-mb25{ margin-bottom:25px;}
+.h-mb30{ margin-bottom:30px;}
+
+/*padding 间距*/
+.h-pt0{ padding-top:0 !important; }
+.h-pt5{ padding-top:5px; }
+.h-pt10{ padding-top:10px; }
+.h-pt15{ padding-top:15px; }
+.h-pt20{ padding-top:20px; }
+.h-pt25{ padding-top:25px; }
+.h-pt30{ padding-top:30px; }
+
+.h-pr5{ padding-right:5px; }
+.h-pr10{ padding-right:10px; }
+.h-pr15{ padding-right:15px; }
+.h-pr20{ padding-right:20px; }
+.h-pr25{ padding-right:25px; }
+.h-pr30{ padding-right:30px; }
+
+.h-pl5{ padding-left:5px; }
+.h-pl10{ padding-left:10px; }
+.h-pl15{ padding-left:15px; }
+.h-pl20{ padding-left:20px; }
+.h-pl25{ padding-left:25px; }
+.h-pl30{ padding-left:30px; }
+
+.h-pb10{ padding-bottom:10px;}
+.h-pb15{ padding-bottom:15px;}
+.h-pb20{ padding-bottom:20px;}
+.h-pb25{ padding-bottom:25px;}
+.h-pb30{ padding-bottom:30px;}
+
+/*隐藏文本*/
+.h-hideText{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*小手图标*/
+.h-hand{cursor: pointer;}
+
+/*水平分割线*/
+.h-division{height: 1px;background: #dcdfe6;}
+
+/*垂直居中*/
+.h-vm{vertical-align: middle;}
+
+.h-dib{display: inline-block;}
+
+/*数显标志未*/
+.h-shuFlag{display: inline-block;height:1.25rem;background:#189cd8;width: 0.2rem;}

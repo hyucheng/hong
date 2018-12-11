@@ -1,0 +1,36 @@
+/* .el-checkbox{
+  color: $root-color;
+  &__{
+    &input{
+      &.is-checked{
+        @include el-prefix(checkbox__inner){
+          border-color: $root-hover-color; background-color: $root-hover-color;
+          @include after(null){
+            transform: rotate(45deg) scaleY(2);
+          }
+        }
+        + {
+          @include el-prefix(checkbox__label){
+            color: $root-color;
+          }
+        }
+      }
+    }
+    &inner{
+      @include el-ratio($el-checkbox);
+      border-color: $el-border; border-radius: 0;
+      &:hover{
+        border-color: $root-hover-color;
+      }
+      @include after(null){
+        $this-width: ofrem(6);
+        $this-height: ofrem(6);
+        $this-vector: ofVector($this-height);
+        $this-height-less: ofLess($this-height);
+        $this-hypot: $this-height / cos(45deg);
+        $this-top: calc-auto($el-checkbox $this-hypot * -1, 2);
+        width: $this-width; height: $this-height; margin: auto; top: 1px; right: 0; bottom: $this-top; left: 0;
+      }
+    }
+  }
+} */

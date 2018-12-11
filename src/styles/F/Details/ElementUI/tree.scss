@@ -1,0 +1,31 @@
+.el-tree{
+  $this-node-height: ofrem(40);
+  color: #8e8e8e;
+  &-node{
+    &__{
+      &content{
+        height: $this-node-height; line-height: ofline($this-node-height);
+        > .el-tree-node__expand-icon{
+          margin: ofrem(-2) ofrem(-10) 0 0; /*padding: ofrem(2) ofrem(15);*/
+        }
+      }
+      &expand-icon{
+        font-size: ofrem(18); color: #BEBEBE;
+      }
+    }
+  }
+  &--highlight-current{
+    .el-tree-node.is-current>.el-tree-node__content{
+      //color: #fff; background-color: #66b1ff;
+      //border-left:solid 3px #409EFF;box-sizing: border-box;
+      color:#409EFF;
+      //font-weight: bold;
+      background-color:#fff;
+    }
+  }
+  &__{
+    &empty-block{
+      min-height: $this-node-height;
+    }
+  }
+}

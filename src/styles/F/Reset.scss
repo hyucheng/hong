@@ -1,0 +1,64 @@
+html{
+  $this-size: $root-size / $browser-font-size * 100%;
+  $this-font: ofpart($this-size, $root-line) $root-family;
+  height: 100%; font: $this-font; overflow: auto; color: $root-color;
+}
+body{
+  @include reset-mp;
+  min-width: 1200px; font-size: ofrem($body-size); line-height: 2;
+}
+dl, ol, ul{
+  @include reset-mp;
+  list-style-type: none;
+}
+dd{
+  margin-left: 0;
+}
+@include for-elStyle($h, $lists: font-size, $_isOfrem: true){
+  @extend %EL-H;
+};
+p{
+  margin: 0;
+}
+iframe, img, fieldset{
+  border-width: 0;
+}
+table{
+  border-spacing: 0; border-collapse: collapse;
+}
+td, th{
+  padding: 0;
+}
+i, em{
+  font-style: normal;
+}
+hr{
+  margin: 1em 0; border-width: 1px solid; color: inherit;
+}
+a, input, button, select, textarea, [tab-index]{
+  &:focus{
+    outline: none;
+  }
+}
+a{
+  text-decoration: none; color: inherit;
+}
+main{
+  display: block;
+}
+input, textarea, [contenteditable], [contenteditable='true']{
+  @include root-placeholder;
+}
+input, button, textarea{
+  font: inherit;
+}
+textarea{
+  resize: none;
+}
+
+// Class
+[class^='icon-'], [class*=' icon-']{
+  @include before(null){
+    @include el-icon();
+  }
+}

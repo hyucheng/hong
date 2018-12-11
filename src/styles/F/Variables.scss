@@ -1,0 +1,77 @@
+//基准参数
+$browser-font-size: 16px !default;
+$browser-ie-version: 9 !default;
+$browser-vars: inherit, initial !default;
+
+//字符
+$colon: unquote(':');
+$colons: if($browser-ie-version > 8, unquote('::'), $colon);
+$before: $colons + before;
+$after: $colons + after;
+$nbsp: '\0020';
+$ensp: '\2002';
+$emsp: '\2003';
+$thinsp: '\2009';
+
+//基准参数（样式）
+$root-family: ' PingFangSC-Regular', 'Microsoft YaHei' !default;
+$root-size: 16px !default; //用于 rem 的计算基准（font-size => html）
+$body-size: 14px !default; //页面的基础（font-size => body）
+$root-line: null !default; //基础行高
+$root-icon: 28px !default; //icon 的大小
+$root-path: unquote('../assets/img/'); //图片路径
+$root-sprite: unquote('sprite.png'); //雪碧图
+
+$root-color: #333 !default; //基础色值
+$root-light-color: #006EFF !default; //亮色色值
+$root-dark-color: #999 !default; //暗色色值
+$root-warn-color: #000 !default; //警告色值
+$root-danger-color: #000 !default; //危险色值
+$root-hover-color: #189CD8 !default; //选中色值
+$root-active-color: #ededed !default; //当前色值
+$root-disable-color: #000 !default; //禁用色值
+$root-updating-color: #67c23a; //更新中色值
+
+$root-bgcolor: #eee !default;
+$placeholder-color: #ccc !default;
+
+$root-hover-block: #fff, $root-hover-color !default; //选中色块
+$root-active-block: $root-active-color, #000 !default; //当前色块
+$root-disable-block: $root-disable-color, #000 !default; //禁用色块
+
+$root-grid-cols: 6 !default;
+$root-grid-spac: 5px !default;
+
+$root-duration: .3s !default;
+
+$root-icon-arrow: 8px !default;
+
+//基准参数（元素）
+$h: (
+  h1: 18px,
+  h2: 1.429em,
+  h3: 16px,
+  h4: 1em,
+  h5: .929em,
+  h6: .858em
+) !default;
+
+//extend-only
+%EL-H {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+%PSEUDO-TABLE {
+  width: 100%;
+  content: '';
+  display: table;
+  clear: both;
+}
+
+%PSEUDO-ICON {
+  content: $thinsp;
+  display: inline-block;
+  vertical-align: inherit;
+}

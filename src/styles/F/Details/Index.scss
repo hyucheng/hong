@@ -1,0 +1,16 @@
+#app {
+  height: 100vh; background-color: $root-bgcolor;
+}
+
+@import 'Home/layout';
+@import 'Home/menu';
+@import 'Home/tools';
+@import 'Home/breadcrumb';
+@import 'Home/columns';
+@import 'Home/charts';
+@import 'Home/operateNodeLeft';
+@import 'Home/operateNodeRight';
+@import 'Home/serviceOperateLeft';
+@import 'Home/serviceOperateRight';
+
+@import 'Main/layout';

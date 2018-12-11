@@ -1,0 +1,23 @@
+$dialog-mtop: 15vh;
+$dialog-header-height: 58px;
+$dialog-footer-height: 70px;
+$dialog-body-ptb: ofrem(30);
+$dialog-body-prl: ofrem(20);
+.el-dialog{
+  max-width: 100%;
+  &__{
+    &body{
+      $this-diffs: (
+        100vh
+        $dialog-mtop * -2
+        $dialog-header-height * -1
+        $dialog-footer-height * -1
+      );
+      max-height: calc-auto($this-diffs); padding: $dialog-body-ptb $dialog-body-prl; box-sizing: border-box; overflow: auto;
+      .preview{
+        $this-preview: append($this-diffs, $dialog-body-ptb * -2);
+        max-width: 100%; max-height: calc-auto($this-preview); margin: 0 auto; display: block;
+      }
+    }
+  }
+}

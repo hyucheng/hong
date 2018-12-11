@@ -1,0 +1,72 @@
+.el-icon-{
+  //button[type='text'] add and remove
+  &{
+    $this-width: ofrem(21);
+    $this-height: 3px;
+
+    @at-root {
+      %BUTTON-AR-BEFORE{
+        @include v-middle(m);
+        width: $this-width; height: $this-height; right: 0; left: 0; background-color: currentColor;
+      }
+      %BUTTON-AR-TEXT{
+        width: $el-height; position: relative; vertical-align: top; color: $root-hover-color;
+        > span{
+          display: none;
+        }
+        &:hover{
+          color: $el-hover;
+        }
+        @include before(){
+          @extend %BUTTON-AR-BEFORE;
+        }
+      }
+    }
+
+    &remove{
+      @extend %BUTTON-AR-TEXT;
+    }
+    &add{
+      @extend %BUTTON-AR-TEXT;
+      @include after(){
+        @extend %BUTTON-AR-BEFORE;
+        width: $this-height; height: $this-width;
+      }
+    }
+  }
+
+  //button[type='text'] up and down
+  &{
+    $this-width: ofrem(12);
+    $this-height: ofrem(18);
+    $this-weight: 2px;
+    $this-ratio: $this-width / sqrt(2);
+    $this-offset: $this-width / 8;
+
+    @at-root %BUTTON-UD-TEXT{
+      width: $el-height; position: relative; transform-style: preserve-3d; color: $el-border;
+      > span{
+        display: none;
+      }
+      @include before(){
+        @include v-middle(m);
+        width: $this-weight; height: $this-height; right: 0; left: 0; transform: translateY($this-offset); transform-style: preserve-3d; background-color: currentColor;
+      }
+      @include after(){
+        $this-y: calc-auto($this-ratio $this-height * -1, 2);
+
+        @include v-middle(m);
+        @include el-ratio($this-ratio);
+        right: 0; left: 0; border: solid; border-width: $this-weight 0 0 $this-weight; transform: translateY($this-y) translateY($this-weight / sqrt(2)) translateY($this-offset) rotate(45deg); transform-style: preserve-3d;
+      }
+    }
+    
+    &up{
+      @extend %BUTTON-UD-TEXT;
+    }
+    &down{
+      @extend %BUTTON-UD-TEXT;
+      transform: rotate(180deg);
+    }
+  }
+}

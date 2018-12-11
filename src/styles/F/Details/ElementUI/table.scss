@@ -1,0 +1,109 @@
+.el-table{
+  $this-line: $el-height;
+  $this-ptb: calc-auto($el-table-line $this-line * -1, 2);
+  $this-hover-bgcolor: $el-bgcolor;
+
+  @at-root %TABLE-BORDER{
+    border-bottom-color: $el-border;
+  }
+  @at-root %TABLE-LAYOUT{
+    padding: $this-ptb 0;
+    > .cell{
+      line-height: $this-line;
+    }
+  }
+  @at-root %TABLE-AFTER{
+    @include after(null){
+      background-color: $el-border;;
+    }
+  }
+  
+  @extend %TABLE-AFTER;
+  margin:0 auto; border: solid $el-border; border-width: 1px 0 0 1px; font-size: $el-size; box-sizing: border-box; color: $root-color;
+  td{
+    @extend %TABLE-BORDER;
+    @extend %TABLE-LAYOUT;
+  }
+  thead{
+    color: $root-dark-color;
+    &.is-group{
+      > tr{
+        &:first-child:nth-last-child(n + 2){
+          > th{
+            background-color: $root-bgcolor;
+          }
+        }
+        &:nth-child(n + 2){
+          color: #6E6E6E;
+        }
+      }
+      th{
+        background-color: $el-bgcolor;
+      }
+    }
+  }
+  &__{
+    &header{
+      th{
+        @extend %TABLE-LAYOUT;
+        background-color: $el-bgcolor;
+        &.is-leaf{
+          @extend %TABLE-BORDER;
+        }
+      }
+    }
+    &body{
+      
+    }
+    &append-wrapper{
+      height: $this-line; padding: $this-ptb; line-height: $this-line;
+    }
+    &empty-block{
+      min-height: $el-table-line; line-height: $el-table-line;
+    }
+    &fixed-right-patch{
+      border-bottom-color: $el-border;
+    }
+    &row{
+      //更新中
+      &-updating{
+        color: $root-updating-color;
+      }
+    }
+  }
+  &--{
+    &border{
+      @extend %TABLE-AFTER;
+      border-color: $el-border;
+      td, th{
+        border-right-color: $el-border;
+      }
+      th{
+        border-bottom-color: $el-border;
+      }
+    }
+    &group{
+      @extend %TABLE-AFTER;
+      border-color: $el-border;
+    }
+    &enable-row-hover{
+      @include el-prefix(table__body){
+        tr:hover{
+          > td{
+            background-color: $this-hover-bgcolor;
+          }
+        }
+      }
+    }
+  }
+  &-column{
+    &--selection{
+      > .cell{
+        padding-right: 10px; text-align: center;
+      }
+    }
+  }
+  &-b{
+    color: $root-hover-color;
+  }
+}

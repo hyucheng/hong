@@ -1,0 +1,22 @@
+/*
+  优雅：
+    1）$browser-、$root- 打头的为全局变量，不可在局部使用该打头
+    2）标签名 + 横杠 打头的为该标签（或类似标签）的变量，避免在局部使用标签名打头
+    3）一个单词命名的变量表示字符串，避免在局部（不包括 mixin、function）使用一个单词命名
+    4）全部大写表示 extend-only（继承会造成一些不可预估的问题，慎用）
+    5）function 命名尽量以功能为主，其中 of 打头的为全局 function（不可在局部使用）
+    6）mixin 命名尽量以功能为主，其中：
+        reset-    重置样式，
+        clear-    清除影响（包括对父节点影响），
+        hide-     隐藏内容，
+        el-       元素设置
+*/
+@import 'Variables';
+//全局变量
+@import 'Functions';
+//全局方法
+@import 'Mixins';
+//全局 mixin
+@import 'Reset';
+//重置样式
+@import 'Details'; //业务明细

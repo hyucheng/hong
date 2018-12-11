@@ -1,0 +1,31 @@
+.el-radio{
+  color: $root-color;
+  & + &{
+    margin-left: $el-radio-spac;
+  }
+  &__{
+    &input{
+      &.is-checked{
+        @include el-prefix(radio__inner){
+          border-color: $root-hover-color; background-color: #fff;
+          @include after(null){
+            @include el-ratio($el-radio-small);
+            background-color: $root-hover-color;
+          }
+        }
+        + {
+          @include el-prefix(radio__label){
+            color: $root-color;
+          }
+        }
+      }
+    }
+    &inner{
+      @include el-ratio($el-radio-big);
+      border-color: $el-border;
+    }
+    &label{
+      padding: 0 $el-spac;
+    }
+  }
+}

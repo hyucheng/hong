@@ -1,0 +1,13 @@
+.el-pager{
+  height: $el-height; border-collapse: collapse; box-sizing: border-box; display: inline-table;
+  > li{
+    @include root-transition;
+    width: $el-height; min-width: 0; height: auto; margin: 0; padding: 0; border: 1px solid $el-border; font-size: $el-title; line-height: 1; display: table-cell; vertical-align: middle;
+    &:hover{
+      color: $root-hover-color;
+    }
+    &.active{
+      @include colors-weight($root-hover-block);
+    }
+  }
+}

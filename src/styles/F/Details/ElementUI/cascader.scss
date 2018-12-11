@@ -1,0 +1,10 @@
+.el-cascader{
+  line-height: $el-height;
+  &__{
+    &label{
+      > span{
+        color: inherit;
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+.el-button{
+  & + &{
+    margin-left: $el-button-spac;
+  }
+}

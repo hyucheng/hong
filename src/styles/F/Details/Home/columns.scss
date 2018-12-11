@@ -1,0 +1,21 @@
+@include app-prefix(columns){
+  width: 100%; height: ofrem(100); display:table; table-layout: fixed; box-sizing: border-box;
+  > li{
+    display:table-cell; overflow: hidden; white-space: nowrap; vertical-align: middle; text-align: center;
+    @include before(null){
+      line-height: ofrem(20); content: attr(data-label); display: block; color: $root-color;
+    }
+    @include after(null){
+      font-size: ofrem(30); line-height: ofrem(42); content: attr(data-num); display: block;
+    }
+    $this-colors: #01AAED, #93C01F, #ED0D01;
+    &:nth-child(n + 2){
+      border-left: 1px solid $root-active-color;
+    }
+    @for $i from 1 through length($this-colors) {
+      &:nth-child(#{$i}){
+        color: nth($this-colors, $i);
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+/// 立即执行
+@mixin IIFE{
+  @content;
+}
+
+/// 写入 content
+@mixin content($content){
+  @if $content != null {
+    content: $content;
+  }
+}
+
+/// before
+@mixin before($content: ''){
+  &#{$before}{
+    @include content($content);
+    @content;
+  }
+}
+
+/// after
+@mixin after($content: ''){
+  &#{$after}{
+    @include content($content);
+    @content;
+  }
+}
+
+/// 添加命名空间
+@mixin root-prefix($name, $prefix, $is-children: false){
+  .#{$prefix}{
+    @if $is-children {
+      > #{$name}{
+        @content;
+      }
+    } @else {
+      &-#{$name}{
+        @content;
+      }
+    }
+  }
+}
+
+/// 颜色加权
+@mixin color-weight($prop, $color, $weight){
+  @if $weight > 1 {
+    #{$prop}: darken($color, ($weight - 1) * 100%);
+  } @else {
+    #{$prop}: lighten($color, (1 - $weight) * 100%);
+  }
+}
+
+/// 色块分解加权
+@mixin colors-weight($colors, $a: 1, $b: 1){
+  $color:  nth($colors, 1);
+  $bgcolor: nth($colors, 2);
+  @include color-weight(color, nth($colors, 1), $a);
+  @include color-weight(background-color, nth($colors, 2), $b);
+}
+
+/// for data 应用到 css 列表
+@mixin for-elStyle($key-value, $prefix: '', $suffix: '', $lists: background-position, $_isOfrem: false){
+  $size: length($lists);
+  @each $key, $value in $key-value {
+    #{$prefix + $key + $suffix}{
+      @if $size == 0 {
+        @debug 'Empty $lists';
+      } @else if $size == 1 {
+        @include for-elStyle-set(nth($lists, 1), $value, $_isOfrem);
+      } @else {
+        @for $i from 1 through $size {
+          @if length($value) >= $i {
+            @include for-elStyle-set(nth($lists, $i), nth($value, $i), $_isOfrem);
+          }
+        }
+      }
+      @content;
+    }
+  }
+}
+@mixin for-elStyle-set($prop, $value, $isOfrem){
+  @if $isOfrem {
+    #{$prop}: ofrem($value);
+  } @else {
+    #{$prop}: $value;
+  }
+}
+
+
+/// 优雅的书写 @keyframes
+@mixin keyframes($name){
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+/// 自动调用 keyframes
+@mixin root-keyframes{
+  $this-name: uuid();
+  @include keyframes($this-name){
+    @content;
+  };
+  @include root-animation($this-name);
+}

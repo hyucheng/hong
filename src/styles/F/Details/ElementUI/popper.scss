@@ -1,0 +1,14 @@
+@mixin popper-placement($dir){
+  &[x-placement^=#{$dir}]{
+    .popper__arrow{
+      border-#{$dir}-color: $el-border;
+      @content;
+    }
+  }
+}
+
+@include el-prefix(popper){
+  @each $value in (top right bottom left) {
+    @include popper-placement($value);
+  }
+}

@@ -1,0 +1,134 @@
+@include app-prefix(menu){
+  $this-size: $el-size;
+  $this-icon: $root-icon;
+  $text-color: #fff;
+  $this-line: $app-nav-line;
+  $this-height: calc-auto(100vh $app-logo-height * -1 $this-line * -1);
+  $this-indent: calc-auto($app-collapse-width $root-icon * -1, 2);
+  $this-icon-mright: ofrem(6);
+  $this-plr: $this-indent;
+  $this-popup-plr: ofrem(42);
+  $this-open-bgcolor: #10192A;
+  $this-popup-width: ofrem(140);
+  
+  @at-root %MENU-ITEM{
+    @include root-transition;
+    height: $this-line; padding-left: $this-indent !important; font-size: $this-size; line-height: $this-line; color: $text-color;
+  }
+  @at-root %MENU-COLLAPSE{
+    padding-right: $this-plr !important; padding-left: $this-plr !important;
+    [class^='el-icon-']{
+      width: $root-icon;
+    }
+  }
+  @at-root %MENU-POPUP{
+    min-width: $this-popup-width; padding-right: $this-popup-plr; padding-left: $this-popup-plr !important;
+  }
+    
+  width: $app-aside-width; height: $this-height; border-right-width: 0; overflow: auto; overflow-x: hidden; background-color: rgba(255, 255, 255, 0);
+  &.el-menu--collapse{
+    width: $app-collapse-width; overflow: visible;
+    > {
+      .menu-wrapper{
+        width: 100%;
+      }
+      @include el-prefix(menu-item){
+        @extend %MENU-COLLAPSE;
+      }
+      @include el-prefix(submenu){
+        > {
+          @include el-prefix(submenu__title){
+            @extend %MENU-COLLAPSE;
+          }
+        }
+      }
+    }
+    @include el-prefix(submenu__title){
+      @extend %MENU-COLLAPSE;
+    }
+    @include el-prefix(submenu){
+      @include el-prefix(menu){
+        margin-left: 0; padding: 0; border-width: 0; border-radius: 0; box-shadow: none;
+      }
+    }
+  }
+
+  @include el-prefix(tooltip){
+    @include root-transition;
+    @extend %MENU-COLLAPSE;
+  }
+  
+  @include el-prefix(menu){
+    min-width:0; border-right-width: 0; background-color: transparent;
+    &:hover{
+      > li{
+        background-color: transparent;
+      }
+    }
+    &-item{
+      @extend %MENU-ITEM;
+      @at-root ul#{&}:hover, &:focus, &.is-active{
+        background-color: $root-hover-color;
+      }
+    }
+    &--inline{
+      [class^='el-icon-']{
+        visibility: hidden;
+      }
+    }
+    &--popup{
+      background-color: $this-open-bgcolor;
+      @include el-prefix(menu-item){
+        @extend %MENU-POPUP;
+      }
+      [class^='el-icon-']{
+        display: none;
+      }
+    }
+  }
+
+  @include el-prefix(submenu){
+    $this-arrow-width: ofrem(8);
+    $this-arrow-mright: ofrem(32);
+    $this-arrow-spac: $this-arrow-width;
+    &__title{
+      @extend %MENU-ITEM;
+      padding-right: calc-auto($this-arrow-mright $this-arrow-width $this-arrow-spac);
+      &:focus, &:hover{
+        background-color: transparent;
+      }
+    }
+    &.is-opened{
+      background-color: $this-open-bgcolor;
+      @include el-prefix(submenu__icon-arrow){
+        transform:translateY(-50%) rotate(135deg);
+      }
+    }
+    &__icon-arrow{
+      @include el-iarrow($this-arrow-width);
+      margin-top: 0; right: $this-arrow-mright; color: inherit;
+    }
+    @include el-prefix(icon-arrow-down){
+      @include before(normal);
+    }
+  }
+
+  [class^='el-icon-']{
+    @include el-ratio($this-icon);
+    margin-right: $this-icon-mright; background: 50% no-repeat;
+  }
+
+  @at-root {
+    @include el-prefix(tooltip__popper){
+      .menu-tooltip{
+        @extend %MENU-POPUP;
+        position: absolute; top: 0; left: 0; line-height: $this-line; box-sizing: border-box; white-space: nowrap; z-index: 1; cursor: pointer; background-color: $this-open-bgcolor;
+      }
+      &[x-placement^=right]{
+        .menu-tooltip{
+          top: -10px; left: -12px;
+        }
+      }
+    }
+  }
+}

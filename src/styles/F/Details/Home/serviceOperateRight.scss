@@ -1,0 +1,19 @@
+@include app-prefix(serviceOperateRight){
+  width: 100%; height: ofrem(75); display:table; table-layout: fixed; box-sizing: border-box;
+  > li{
+    display:table-cell; overflow: hidden; white-space: nowrap; text-align: center; vertical-align: middle;padding-left:1.25rem;
+    @include before(null){
+      line-height: ofrem(20); content: attr(data-label); vertical-align: middle;font-size:16px; color: $root-color;
+    }
+    @include after(null){
+      font-size: ofrem(30); line-height: ofrem(42); content: attr(data-num); vertical-align: middle;padding-left: 0.625rem;
+    }
+    $this-colors: #93C01F, #F2443A;
+
+    @for $i from 1 through length($this-colors) {
+      &:nth-child(#{$i}){
+        color: nth($this-colors, $i);
+      }
+    }
+  }
+}

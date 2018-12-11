@@ -1,0 +1,33 @@
+.el-select{
+  line-height: $el-height;
+  &-dropdown{
+    border-color: $el-border; border-radius: $el-radius;
+    &__{
+      &list{
+        padding: 0;
+      }
+      &item{
+        height: $el-height; line-height: $el-height;
+        &:hover{
+          background-color: $el-bgcolor;
+        }
+        &.selected{
+          font-weight: 400; color: $root-hover-color; background-color: $el-bgcolor;
+        }
+      }
+      &empty{
+        padding: 0; line-height: $el-height;
+      }
+    }
+  }
+  > .el-input{
+    > input{
+      &[rows='2']{
+        height: $el-height !important;
+      }
+    }
+  }
+  &__tags{
+    height: calc-auto($el-height -2px); overflow: hidden; align-items: flex-end;
+  }
+}

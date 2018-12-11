@@ -1,0 +1,15 @@
+.el-input{
+  &__{
+    &inner{
+      height: $el-height; padding: 0 $el-input-plr; border-radius: $el-radius; overflow: hidden; color: $root-color;
+    }
+  }
+}
+
+.el-textarea{
+  &__{
+    &inner{
+      padding: .25em $el-input-plr; border-radius: $el-radius; overflow: auto; color: $root-color;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+/// 优化 calc
+@function calc-auto($vars, $base: 1, $dir: 0) {
+  $map: () !default;
+  //对 $vars 进行分类
+  @for $i from 1 through length($vars) {
+    $var: nth($vars, $i);
+    $unit: unit($var);
+    $lists: () !default;
+    @if map_has_key($map, $unit) {
+      $lists: map-get($map, $unit);
+      $lists: append($lists, $var);
+    } @else {
+      $lists: ($var);
+    }
+    $map: map-merge($map, ($unit: $lists));
+  }
+  //对同单位的值进行计算
+  @each $m in $map {
+    $sum: 0;
+    $lists: nth($m, 2);
+    $unit: unit(nth($lists, 1));
+    @for $i from 1 through length($lists) {
+      $sum: $sum + nth($lists, $i);
+    }
+    $map: map-merge($map, ($unit: $sum));
+  }
+  //将值为 0 的项排除
+  $vals: () !default;
+  @each $m in $map {
+    $val: nth($m, 2);
+    @if $val != 0 {
+      $vals: append($vals, $val);
+    }
+  }
+  //处理并输出
+  $size: length($vals);
+  @if $size == 0 {
+    @return 0;
+  } @else if $size == 1 {
+    $val: nth($vals, 1);
+    @if $dir == 0 {
+      @return $val / $base;
+    } @else {
+      @return $val * $base;
+    }
+  } @else {
+    $output: null !default;
+    @for $i from 1 through $size {
+      $val: nth($vals, $i);
+      @if $i == 1 {
+        $output: $val;
+      } @else if $val > 0 {
+        $output: $output + ' + ' + $val;
+      } @else {
+        $output: $output + ' - ' + abs($val);
+      }
+    }
+    @if $base == 1 {
+      @return unquote('calc(#{$output})');
+    } @else {
+      @return unquote('calc((#{$output}) #{if($dir == 0, '/', '*')} #{$base})');
+    }
+  }
+}
+
+/// 保留 $pow 位小数
+@function ofround($value, $pow: 0) {
+  $mul: pow(10, $pow);
+  @return round($value * $mul) / $mul;
+}

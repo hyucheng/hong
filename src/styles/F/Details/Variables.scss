@@ -1,0 +1,119 @@
+/* Home */
+$app-aside-width: ofrem(200);
+$app-logo-height: ofrem(50);
+$app-tools-height: $app-logo-height;
+$app-nav-line: ofrem(40);
+$app-bc-height: $app-nav-line;
+$app-main-title: $app-nav-line;
+$app-card-title: $app-nav-line;
+$app-spac: ofrem(10);
+$app-collapse-width: ofrem(62);
+$app-collapse-class: ofclass(collapse);
+$app-h3-indent: $app-spac * 2;
+
+/* Main */
+$app-main-left: ofrem(210);
+$app-main-plr: $app-spac * 2;
+$app-main-border: #e2e2e2;
+
+/* ElementUI */
+$el-spac: $app-spac;
+$el-mrl: $el-spac * 2;
+$el-height: $el-spac * 3;
+$el-radius: ofrem(2);
+$el-title: ofrem(16);
+$el-size: ofrem(14);
+$el-error: ofrem(12);
+$el-border: $app-main-border;
+$el-hover-border: $root-hover-color;
+$el-table-line: $el-spac * 4;
+$el-bgcolor: #f2f2f2;
+$el-button-spac: ofrem(10);
+$el-radio-spac: $el-spac * 2.5;
+$el-radio-big: $el-title;
+$el-radio-small: $el-radio-big / 2;
+$el-checkbox: $el-spac * 2;
+$el-input-plr: $el-spac;
+$el-hover: #0B72A1;
+$el-arrow: ofrem(6);
+
+/// button 集合（定义的顺序不可打乱）
+@mixin button-status {
+  &:hover, &:focus {
+    @content;
+  }
+}
+
+%BUTTON-HOVER {
+  border-color: transparent;
+  color: #fff;
+  background-color: $el-hover;
+}
+
+%BUTTON-DEFAULT {
+  @include root-transition;
+  @include colors-weight($root-hover-block);
+  height: $el-height;
+  padding: 0 ofrem(16);
+  border: 1px solid transparent;
+  border-radius: $el-radius;
+  font-size: $el-size;
+  @include button-status {
+    @extend %BUTTON-HOVER;
+  }
+;
+}
+
+%BUTTON-PLAIN {
+  border: 1px solid $el-border;
+  background-color: #fff;
+  @include button-status {
+    border-color: currentColor;
+    color: $root-hover-color;
+  }
+}
+
+%BUTTON-PRIMARY {
+  @extend %BUTTON-DEFAULT;
+}
+
+%BUTTON-SEARCH {
+  $this-bgcolor: #fff;
+  border: 1px solid $el-border;
+  color: $root-color;
+  background-color: $this-bgcolor;
+  @include button-status {
+    border-color: currentColor;
+    color: $root-hover-color;
+    background-color: $this-bgcolor;
+  }
+}
+
+%BUTTON-RESET {
+  color: $root-color;
+  background-color: $root-bgcolor;
+  @include button-status {
+    border-color: currentColor;
+    color: $root-hover-color;
+    background-color: rgba($root-hover-color, 0.15);
+  }
+}
+
+%BUTTON-TEXT {
+  $this-plr: 0;
+
+  padding-right: $this-plr;
+  padding-left: $this-plr;
+  color: $root-hover-color;
+  background-color: transparent;
+  @include button-status {
+    color: $root-hover-color;
+    background-color: transparent;
+  }
+}
+
+%BUTTON-DISAVLED {
+  border-color: transparent !important;
+  color: #f2f2f2 !important;
+  background-color: #c2c2c2 !important;
+}

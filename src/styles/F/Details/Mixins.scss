@@ -1,0 +1,23 @@
+@mixin app-prefix($name, $is: false, $this: false){
+  @include root-prefix($name, app, $is){
+    @content;
+  }
+}
+
+@mixin u-prefix($name, $is: false, $this: false){
+  @include root-prefix($name, u, $is){
+    @content;
+  }
+}
+
+@mixin el-prefix($name, $is: false, $this: false){
+  @include root-prefix($name, el, $is){
+    @content;
+  }
+}
+
+@mixin for-styles($map){
+  @each $key, $value in $map {
+    #{$key}: $value;
+  }
+}

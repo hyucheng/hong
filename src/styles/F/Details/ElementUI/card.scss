@@ -1,0 +1,19 @@
+.el-card{
+  border-radius: 0;
+  &__ {
+    &header {
+      padding: 0;
+      border-bottom-width: 0;
+      line-height: $app-card-title;
+      color: $root-color;
+      background-color: #F9F9F9;
+      h3 {
+        text-indent: $app-h3-indent;
+      }
+    }
+    &body {
+      @include clear-float;
+      position: relative;
+    }
+  }
+}

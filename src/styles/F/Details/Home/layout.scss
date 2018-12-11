@@ -1,0 +1,83 @@
+@include app-prefix(aside, true){
+  @include root-transition;
+  width: $app-aside-width; position: absolute; top: 0; left: 0; z-index: 9; color:#fff; background-color:#19243C;
+}
+
+@include app-prefix(main, true){
+  @include root-transition;
+  height: 100vh; margin-left: $app-aside-width; position: relative; overflow: auto;
+}
+
+@include app-prefix($app-collapse-class, true){
+  @include root-keyframes{
+    0%, 99.9%{
+      overflow: hidden;
+    }
+    100%{
+      overflow: visible;
+    }
+  }
+  width: $app-collapse-width;
+  + main{
+    margin-left: $app-collapse-width;
+  }
+}
+
+@include app-prefix(main){
+  $this-height: calc-auto(100% $app-tools-height * -1 $app-bc-height * -1);
+  height: $this-height; position: relative; box-sizing:border-box;
+  &:empty{
+    visibility: hidden;
+  }
+}
+
+@include app-prefix(template){
+  @include clear-float;
+}
+
+@include app-prefix(switch){
+  width: 100%; height: $app-bc-height; position: relative; cursor: pointer; color: #fff; background-color: #253558;
+  @include before(){
+    $this-width: ofrem(12);
+    $this-border: ofrem(2);
+    $this-plr: calc-auto($this-width $this-border * -3, 2);
+    @include v-middle;
+    width: $this-width; height: ofrem(20); margin: auto; padding:0 $this-plr; right: 0; left: 0; border: solid; border-width: 0 $this-border; box-sizing: border-box; background: currentColor content-box;
+  }
+}
+
+@include app-prefix(welcome){
+  height: $app-bc-height; margin:0 $app-spac; font-size: $el-title; line-height: $el-title * 2;
+  > i{
+    color: $root-hover-color;
+  }
+}
+
+@include app-prefix(form-logo){
+  $this-line: 1.4em;
+  @include el-prefix(upload){
+    vertical-align: top;
+    &:focus{
+      color: inherit;
+    }
+  }
+  @include u-prefix(capp){
+    &-name{
+      line-height: 1;
+    }
+    &-item{
+      margin: 0;
+      @include before(null){
+        color: rgb(121, 121, 121);
+      }
+      @include after(normal);
+    }
+  }
+  p{
+    $this-ptop: calc-auto($u-capp $this-line * -2, 2);
+    margin-left: ofrem(30); padding-top: $this-ptop; line-height: $this-line; display: inline-block; opacity: .7;
+    > span{
+      display: block;
+    }
+  }
+}

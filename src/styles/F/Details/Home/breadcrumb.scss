@@ -1,0 +1,30 @@
+@include app-prefix(breadcrumb) {
+  height: $app-bc-height;  margin: 0 $app-spac; font-size: 1em; line-height: $app-bc-height;
+  > {
+    @include el-prefix(breadcrumb__item) {
+      > span {
+        font-weight: 400; color: rgba($root-hover-color, .8);
+        &:hover{
+          color: $root-hover-color
+        }
+      }
+      > i {
+        color: $root-dark-color;
+      }
+      &:first-child{
+        > span{
+          cursor: text; color: $root-dark-color;
+        }
+      }
+      &:last-child {
+        > span[class] {
+          color: $root-color;
+        }
+      }
+      > .is-link {
+        font-weight: 400;
+        color: $root-light-color;
+      }
+    }
+  }
+}

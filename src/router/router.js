@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import index from '@/components/index'
+import index from '@/views/index'
 const _import = require('./_import');
 
 const view = {

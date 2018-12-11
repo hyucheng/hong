@@ -1,0 +1,86 @@
+@include app-prefix('main-left') {
+  width: $app-main-left;
+  border: solid #e2e2e2;
+  border-width: 1px 0 1px 1px;/*border: 1px solid $app-main-border;*/ box-sizing: border-box; float: left; background-color: #F9F9F9;
+  > {
+    h3{
+      font-size: $el-size; line-height: $app-nav-line; text-indent: $app-h3-indent; /*color: $root-color; background-color: $app-main-border;*/
+      color:#fff;background: #0babff;
+    }
+    @include el-prefix(tree){
+      background-color: #eee;
+    }
+  }
+}
+
+@include app-prefix('main-right') {
+  $this-width: calc-auto(100% $app-main-left * -1 $app-spac * -1);
+  width: $this-width; float: left; margin-left: $app-spac;
+}
+
+@include app-prefix('main-form') {
+  width: 100%; display: table; table-layout: fixed;
+  > {
+    @include el-prefix(form--inline){
+      display: table-cell;
+    }
+    @include app-prefix('main-tools'){
+      width: ofrem(100); display: table-cell; text-align: right;
+    }
+  }
+}
+
+// APP定制包名弹窗
+.msgbox-panel-1{
+  width: 500px; max-width: 100%;
+}
+.msgbox-warn-1{
+  @at-root div#{&}{
+    background-color: transparent;
+  }
+  > p{
+    line-height: 1.4; white-space: nowrap; text-align: left; opacity: .7; color: #303133;
+  }
+}
+
+// 业务授权表格 link
+.busAnthor-router{
+  > a{
+    text-decoration: underline; color: rgb(0, 178, 255);
+  }
+  &:not(:first-child){
+    @include before('、');
+  }
+}
+
+// 多表单
+.app-forms{
+  &-title{
+    font-size: ofrem(16); line-height: 2em;
+    @include before($thinsp){
+      $this-line: ofrem(20);
+      height: $this-line; position: relative; top: ofrem(-1); border-left: 3px solid $root-hover-color; line-height: $this-line; display: inline-block; vertical-align: baseline;
+    }
+  }
+}
+
+.imitation{
+  // 仿链接样式
+  &-link{
+    color: $root-light-color;
+    &-false{
+      cursor: default;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+  // 仿链接样式（添加下划线）
+  &-key{
+    margin-left: 1em; text-decoration: underline;
+  }
+  // 文本样式
+  &-text{
+    min-width: 15em; display: inline-block;
+  }
+}

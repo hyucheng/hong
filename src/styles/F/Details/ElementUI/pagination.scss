@@ -1,0 +1,60 @@
+.el-pagination{
+  $this-ptb: calc-auto($el-table-line $el-height * -1, 2);
+  $this-spac: calc-auto($app-main-plr ofrem(-4));
+
+  @at-root %PAGINATION-BTN{
+    width: $el-height; position: relative; border: 1px solid $el-border; border-radius: $el-radius;
+    > {
+      @include el-prefix(icon){
+        display: none;
+      }
+    }
+    @include after(){
+      @include root-transition;
+      @include el-iarrow();
+      margin: auto; right: 0; left: $root-icon-arrow / -2;
+    }
+  }
+
+  margin-top: -1px; padding: $this-ptb 0; position: relative; border: 1px solid $el-border; line-height: $el-height; font-weight: 400; z-index: 9; color: $root-color; background-color: $el-bgcolor;
+  > button, > span{
+    margin-right: $this-spac;
+  }
+  button, span:not([class*=suffix]){
+    min-width: 0; height: $el-height; padding: 0; font-size: 1em; line-height: $el-height; color: inherit;
+  }
+  &__{
+    @at-root span#{&}total{
+      margin-right: ofrem(4);
+    }
+    &jump{
+      margin-left: $this-spac;
+      > :nth-child(n + 2){
+        margin-left: $this-spac;
+      }
+    }
+    &editor{
+      height: $el-height; margin: 0 .5em; padding: 0;
+      &.el-input{
+        width: $el-height;
+        @include el-prefix(input__inner){
+          height: $el-height;
+        }
+      }
+    }
+  }
+  .btn-prev{
+    @extend %PAGINATION-BTN;
+    margin-right: -1px; border-top-right-radius: 0; border-bottom-right-radius: 0;
+    @include after(null){
+      left: $root-icon-arrow / 2; transform: translateY(-50%) rotate(-135deg);
+    }
+  }
+  .btn-next{
+    @extend %PAGINATION-BTN;
+    margin-left: -1px; border-top-left-radius: 0; border-bottom-left-radius: 0;
+  }
+  &-table{
+    text-align: right;
+  }
+}

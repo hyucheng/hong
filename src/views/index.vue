@@ -29,14 +29,23 @@
       </el-header>
       <el-main>
         <el-row style="height:50px;line-height:50px;">
-          <el-col :span="12" style="background: #fff;">
-            <el-col :span="6">{{qData[0].sId}}：</el-col>
-            <el-col :span="18">{{qData[0].content}}</el-col>
+          <el-col :span="24" style="background: #fff;margin-top:30px;">
+            <el-col v-for="(item,index) in qData" :key="index" style="box-sizing: border-box;">
+              <el-col :span="3" style="padding-right:20px;text-align: right;">
+                NO.{{item.sId}}：
+                <div style="text-align: right;">答：</div>
+              </el-col>
+              <el-col :span="21" style="text-align: left;">
+                <div style="color:#1987ff">{{item.content}}</div>
+                <div>{{sData[index].content}}</div>
+              </el-col>
+            </el-col>
           </el-col>
-          <el-col :span="12">
-            <el-col :span="4">{{sData[0].aId}}：</el-col>
-            <el-col :span="20">{{sData[0].content}}</el-col>
-          </el-col>
+          <!--<el-col :span="12" style="text-align: left">-->
+            <!--<el-col v-for="(item,index) in sData" :key="index">-->
+              <!--{{item.aId}}：{{item.content}}-->
+            <!--</el-col>-->
+          <!--</el-col>-->
         </el-row>
       </el-main>
     </el-container>
@@ -46,18 +55,24 @@
 </template>
 
 <script>
-
+  import uUeditor from '@/components/ui/u-ueditor';
   import {SWebJsData} from "@/const/subject/webJs";
   import {AWebJsData} from "@/const/answer/webJs";
 
   export default {
     name: 'index',
+    components:{
+      uUeditor
+    },
     data() {
       return {
         activeIndex: '1',
         activeIndex2: '1',
         qData:SWebJsData,
-        sData:AWebJsData
+        sData:AWebJsData,
+        formData: {
+          noticeContent: '',
+        },
       };
     },
     created(){

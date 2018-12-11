@@ -6,5 +6,9 @@ export const SWebJsData = [
   {
     sId:'1544457600',
     content:'JavaScript中如何检测一个变量是一个String类型？请写出函数实现'
+  },
+  {
+    sId:'1544457601',
+    content:'请用js去除字符串空格？'
   }
 ];

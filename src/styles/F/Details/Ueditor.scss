@@ -1,0 +1,9 @@
+.edui-default{
+  line-height: normal;
+  body > &{
+    transform: translateX(-2px);
+  }
+  > .edui-editor{
+    max-width: 100%; box-sizing: border-box; z-index: 999 !important;
+  }
+}

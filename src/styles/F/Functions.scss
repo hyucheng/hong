@@ -1,0 +1,92 @@
+@import 'Functions/Math/math';
+@import 'Functions/Calc';
+
+/// to class
+@function ofclass($name) {
+  @return unquote('.#{$name}');
+}
+
+/// 单位转 rem
+@function ofrem($value, $base: $root-size) {
+  $unit-value: unit($value);
+  $base-unit: 1rem;
+  @if $unit-value == '' {
+    @return ofround($value * 1px / $base * $base-unit, 3);
+  } @else if $unit-value == 'px' {
+    @return ofround($value / $base * $base-unit, 3);
+  }
+  @return $value;
+}
+
+/// 行高转 rem
+@function ofline($value, $base-size: 1) {
+  $base-value: abs($base-size);
+  $unit-value: unit($value);
+  @if $unit-value == 'em' {
+    @return $value / 1em * $base-value;
+  } @else if $unit-value == '%' {
+    @return $value / 1% * $base-value;
+  } @else if $unit-value == 'px' {
+    @if $base-size > 0 {
+      @return ofrem($value) / 1rem * $base-value;
+    }
+  }
+  @return ofrem($value) * $base-value;
+}
+
+
+/// 返回单位向量
+@function ofVector($value) {
+  $unit-vector: (
+    '%': 100%,
+    'em': 1em,
+    'ex': 1ex,
+    'ch': 1ch,
+    'rem': 1rem,
+    'vw': 1vw,
+    'vh': 1vh,
+    'vmax': 1vmax,
+    'vmin': 1vmin,
+    'cm': 1cm,
+    'mm': 1mm,
+    'q': 1q,
+    'in': 1in,
+    'pt': 1pt,
+    'pc': 1pc,
+    'px': 1px,
+    'deg': 1deg,
+    'grad': 1grad,
+    'rad': 1rad,
+    'turn': 1turn,
+    's': 1s,
+    'ms': 1ms,
+    'Hz': 1Hz,
+    'kHz': 1kHz
+  );
+  @return map-get($unit-vector, unit($value));
+}
+
+/// 返回不带单位的数字
+@function ofLess($value) {
+  @return $value / ofVector($value);
+}
+
+/// 避免 scss 由于变量的原因将 '/' 识别成除法运算
+@function ofpart($a1, $a2) {
+  @if $a2 {
+    @return unquote('#{$a1}/#{$a2}');
+  }
+  @return $a1;
+}
+
+/// bg-url简写
+@function bgurl($name: $root-sprite) {
+  @return unquote('url(#{$root-path}#{$name})');
+}
+
+/// uuid
+@function uuid($prefix: 'a') {
+  $num: random();
+  $id: str-slice(unquote('#{$num}'), 3);
+  @return unquote('#{$prefix}#{$id}');
+}

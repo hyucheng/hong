@@ -1,0 +1,40 @@
+/// layout-grid
+@mixin root-gridLayout($cols: $root-grid-cols, $spac: $root-grid-spac, $prefix: ''){
+  @if $cols > 1 {
+    #{$prefix}[inline]{
+      width:100%; box-sizing: border-box; float: left;
+    }
+    @if $spac != 0 {
+      #{$prefix}[inline] + #{$prefix}[inline]{
+        margin-left: $spac;
+      }
+      #{$prefix}[inline]{
+        margin-top: $spac;
+      }
+      #{$prefix}[inline='1/1'], #{$prefix}[inline='1'], #{$prefix}[inline='']{
+        margin-left: 0 !important;
+      }
+    }
+    @for $i from 2 through $cols {
+      #{$prefix}[inline='1/#{$i}']{
+        width: calc-auto(100% ofrem($spac) * -1, $i);
+      }
+    }
+  }
+}
+
+/// 箭头 icon 制作
+@mixin el-iarrow($size: $root-icon-arrow, $border-width: 2px, $is-pos: true, $rotate: 45deg){
+  @include el-ratio(ofrem($size), 0);
+
+  @if $is-pos {
+    @include v-middle;
+    @if $rotate != null {
+      transform: translateY(-50%) rotate($rotate);
+    }
+  } @else if $rotate != null {
+    transform: rotate($rotate);
+  }
+
+  border: $border-width solid; border-bottom-width: 0; border-left-width: 0; box-sizing: border-box;
+}
